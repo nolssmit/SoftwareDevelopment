@@ -1,0 +1,944 @@
+//==================================Strings=================================================
+/*
+const age = 27;
+const twiceTheAge = 2 * age;
+
+String getFullName(String firstName, lastName) {
+  print('$firstName $lastName is $age years old');
+  return '$firstName $lastName';
+}
+
+void main() {
+  var name = 'Foo';
+  name = 'Nols';
+  print(name);
+  print(getFullName('Nols', 'Smit'));
+}
+*/
+//===================================If statements===========================================
+/*
+void test(String aname) {
+  final name = aname;
+ // name = 'aaaa';    // will give a compile error
+  if (name == 'Foo') {
+    print('name is Foo');
+  } else if (name != 'Bar') {
+    print('name is not Bar');
+  } else {
+    print('I don\'t know what the name is!');
+  }
+}
+
+void main() {
+  test('Fool');
+  test('Bar');
+}
+*/
+//==================================Operators=================================================
+/*
+void test() {
+  final age = 50;
+  // infix operators
+  final halfOfAge = age / 2;
+  final doubleOfAge = age * 2;
+  final repeatedWords = 'Run Forrest Run, ' * 20;
+  // prefix operators
+  var myAge = 50;
+  final myAgeMinusOne = --myAge;
+  print('myAgeMinusOne = $myAgeMinusOne, myAge = $myAge');
+  print(repeatedWords);
+}
+
+void main() {
+  test();
+}  
+*/
+//===================================Anonymous functions=====================================
+/*
+void main() {
+   var fruits = ["Apple", "Mango", "Banana", "Kiwi"];
+   fruits.forEach((item) {
+      print('${fruits.indexOf(item)}: $item');
+   });
+}
+*/
+//===============================Another anonymous function=================================
+/*
+void main() {
+  List myList = <int> [3,2,9,5,8,7,4,11];
+  
+  print('=======Done short way========');
+  myList.where((e) => e.isEven).forEach((e) => print(e)); 
+  
+  print('=======Done long way=========');
+  for (int i = 0; i < myList.length-1; i++) {
+    if (myList[i].isEven) {
+      print(myList[i]);
+    }
+  }
+}
+*/
+//===========================================================================================
+//=============================Dart Control Statements and Collections=======================
+//======================================Lists================================================
+/*
+List test(String aname) {
+//  final names = ['Piet','Koos','Jan','Paul'];
+  var names = ['Piet','Koos','Jan','Paul'];
+  final length = names.length;
+  names.add(aname);
+  return names;
+}
+
+void main() {
+  print(test('Willem'));
+} 
+*/
+//======================================Sets================================================
+/*
+Set test(String aname) {
+  var names = {'Piet','Koos','Jan',10};
+  names.add(aname);
+  return names;
+}
+
+void main() {
+  test('Piet');
+  test('Koos');
+  test('Jan');
+  test('Willem');
+  print(test('Willem'));
+}  
+*/
+//=================================Maps (key-value pairs)====================================
+/*
+void test() {
+  var person = {'age': 20, 
+                  'weight': 100,
+                  'name': 'Nols',
+                  };
+  print(person);
+  person['name'] = 'Willem';
+  print(person);
+  person['lastName'] = 'Smit';
+  print(person);
+}
+
+void main() {
+  test();
+}  
+*/
+//=================================Maps (key-value pairs)====================================
+/*
+void myTest() {
+  List myList;
+  const questions = [
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White']
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Sanke', 'Elephant', 'Lion']
+    },
+    {
+      'questionText': 'Who\'s your favorite instructor?',
+      'answers': ['Max', 'Max', 'Max', 'Max']
+    },
+  ];
+  print('================= Function myTest() ===================');
+  print(questions);
+  print(questions[0]);
+  print(questions[1]['answers']);
+
+  myList = (questions[2]['answers'] as List<String>);
+  print(myList);
+}
+
+List myMap() {
+  List myList;
+  const questions = [
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White']
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Sanke', 'Elephant', 'Lion']
+    },
+    {
+      'questionText': 'Who\'s your favorite instructor?',
+      'answers': ['Max', 'Max', 'Max', 'Max']
+    },
+  ];
+
+  myList = [
+    ...(questions[1]['answers'] as List<String>).map((answer) {
+      print(answer);
+      return answer;     
+    }).toList()
+  ];
+
+//  print(myList);
+  return myList;
+}
+
+void main() {
+  List aList;
+  
+  myTest();
+  print('================= Function myMap() ====================');
+  aList = myMap();
+  print(aList);
+}
+*/
+//===========================================================================================
+//===============================Sound null-safety in Dart===================================
+//===========================================================================================
+/*
+// See:  https://dart.dev/null-safety
+
+void test() {
+  // The variable named name is of type String but it's value may be absent
+  String? name = null;   
+  print(name);
+  name = 'Nols';
+  print(name);
+  
+  //  The variable named names is of type List and names in it's totality may be null (or absent) 
+  //    but any of its values can't be null, e.g: List<String>? names = ['Piet',null];  .... error
+  List<String>? names = ['Piet','Koos','Jan','Paul']; 
+  print(names);
+  names = null;
+  print(names);
+  
+  //  The variable named names is of type List and names in it's totality may be null (or absent) 
+  //    and any of its values can be null  or optional.
+  List<String?>? altNames = ['Piet','Koos','Jan','Paul',null];
+  print(altNames);
+  altNames = null;
+  print(altNames);
+}
+
+void main() {
+  test(); 
+} 
+*/
+//===========Cherry-picking non-null values using an infix operator==========================
+/*
+String? test(String? firstName, middleName, lastName) {
+  // If the value on the left of the oprator is null, then pick the value on the right of the operator
+  final String? firstNonNullValue = firstName ?? middleName ?? lastName;
+   
+  return firstNonNullValue;
+}
+
+void main() {
+  String? aVariable;
+  aVariable = test(null, null, null);
+  print('aVariable = $aVariable');
+  print(test(null, null, null));
+  print(test(null, null, 'Smit')); 
+} 
+*/
+//=============================Null-aware assignment operator================================
+/*
+String? test(String? firstName, middleName, lastName) {
+  String? name = firstName;
+  
+  // Assign the variable's value on the right to the variable on the left should the variable's 
+  //   value on the left is null
+  name ??= firstName;
+  print('name = $name');
+  
+  name ??= middleName;
+  print('name = $name');
+  
+  name ??= lastName;
+  print('name = $name');
+  
+  // Comparing left- with right side and pick the one that's not null
+  final String? firstNonNullValue = firstName ?? middleName ?? lastName;  
+   
+  return firstNonNullValue;
+}
+
+void main() {
+  String? firstNonNullValue = test(null, 'Francois', 'Smit');
+  print('firstNonNullValue = $firstNonNullValue'); 
+} 
+*/
+//=========Conditional invocation= (accessing properties of a null object)==================
+/*
+// See: https://dart.dev/null-safety/understanding-null-safety
+
+// The parameter is an List that may be null containing valid strings (if any)
+void test(List<String>? names) {     
+// Old way
+//   final int length;
+//   if(names != null){
+//     length = names.length
+//   } else {
+//     length = 0;
+//   }
+  
+// New way
+  final length = names?.length ?? 0;
+  print('List $names with length = $length');  
+  
+  names?.add('Smit');
+  print('List $names with length = $length');  
+}
+
+void main() {
+  test([]);
+  test(['Nols']);
+}
+*/
+//===========================================================================================
+//==========================Dart enumerations, classes and objects===========================
+//======================================Enumerations=========================================
+/*
+
+enum PersonProperties {
+  firstName, lastName, age
+}
+
+void test() {     
+  print(PersonProperties.firstName.name);
+}
+
+void main() {
+  test();
+}
+
+*/
+//==============================Unsing switch in enumerations=================================
+/*
+enum AnimalType {
+  cat, dog, bunny
+}
+
+void test(AnimalType animalType) {     
+  print('Parameter passed = $animalType');
+  
+// Old way to work with enumerations
+//   if (animalType == AnimalType.cat) {
+//     print('I love cats');
+//   } else if (animalType == AnimalType.dog) {
+//     print('I like to play with dogs');
+//   } else if(animalType == AnimalType.bunny) {
+//     print('Bunnys are so fluffy');
+//  }
+  
+// Better way to work with enumerations
+  switch (animalType) {
+    case AnimalType.cat: print('I love cats'); break;
+    case AnimalType.dog: print('I like to play with dogs'); break;
+    case AnimalType.bunny: print('Bunnys are so fluffy'); break;
+  }
+  print('Function execution is finished');
+}
+
+void main() {
+  test(AnimalType.bunny);
+}
+*/
+//=======================================Classes=============================================
+/*
+class Person {
+  void breathe() {   
+    print('Breathing');
+  }
+  
+  void run() {
+    print('Running');  
+  }  
+  
+}
+
+void test() {
+  // Create an object as an instance of the class
+  final person = Person();
+  person.run();
+  person.breathe();
+}
+
+void main() {
+  test();
+}
+*/
+//============================Constructors of classes========================================
+/*
+class Person {
+  final String name;
+  Person(this.name);
+}
+
+void test() {
+  // Create an object as an instance of the class where name is an instance variable
+  final person = Person('Nols Smit');
+  print('My name is ' + person.name);
+}
+
+void main() {
+  test();
+}
+*/
+//===================Methods or instance methods of classes=====================================
+/*
+class Person {
+  final String name;
+  Person(this.name);
+ 
+  void printName() {
+    print('The name is $name');
+  }
+}
+
+void test() {
+  // Create an object as an instance of the class where zzz is an instance method
+  final aPerson = Person('Nols Smit');
+  print('My name is ' + aPerson.name);
+  aPerson.printName();
+}
+
+void main() {
+  test();
+}
+*/
+//================Inheritance and subclassing (or inheritance) of classes=========================
+/*
+class LivingThing {
+  void breathe() {
+    print('Living thing is breathing');
+  }
+  
+  void move() {
+    print('Living thing is moving');
+  }  
+}
+
+class Cat extends LivingThing{
+  void mew() {
+    print('Cat is meawing');
+  }
+}
+
+void test() {
+  final fluffers = Cat();
+  // LinvingThing's methods
+  fluffers.breathe();
+  fluffers.move();
+  
+  // Cat's method
+  fluffers.mew();
+}
+
+void main() {
+  test();
+}
+*/
+//=====================================Abstract classes========================================
+/*
+
+//See:  https://www.geeksforgeeks.org/abstract-classes-in-dart/
+//Abstract class groups logic into itself for the soul purpose of other classes using it's functionality
+abstract class LivingThing {
+  void breathe() {
+    print('Living thing is breathing');
+  }
+  
+  void move() {
+    print('Living thing is moving');
+  }  
+}
+
+class Cat extends LivingThing{
+  void mew() {
+    print('Cat is meawing');
+  }
+}
+
+void test() {
+  // Abstract class can't be instatiated
+  //final thing = LivingThing();
+  
+  final fluffers = Cat();
+  // LinvingThing's methods
+  fluffers.breathe();
+  fluffers.move();
+  
+  // Cat's method
+  fluffers.mew();
+}
+
+void main() {
+  test();
+}
+*/
+//==============================Factory constructors in classes===============================
+/*
+//Using factory constructors is a way to construct instances of your classes using convenience functions
+
+//See: https://betterprogramming.pub/exploring-the-3-types-of-constructors-in-dart-e2e2d4d6f710
+//See: https://www.freecodecamp.org/news/constructors-in-dart/
+
+class Cat{
+  final String name;
+  Cat(this.name);
+  
+  factory Cat.fluffBall() {
+    return Cat('Fluff ball');
+  } 
+}
+
+void test() {
+  final fluffBall = Cat.fluffBall();
+  print(fluffBall.name);
+}
+
+void main() {
+  test();
+}
+*/
+//==============================Custom operators in classes===============================
+/*
+// Customer operators allow you to override the ability of your class to be compared, 
+//   subtracted, multiplied with your own logic
+
+//See: https://medium.com/@dumazy/enhance-your-classes-with-operator-overloading-in-dart-f1124bd813a0
+//See: https://api.dart.dev/be/137051/dart-core/Object/operator_equals.html
+//See: https://dart-lang.github.io/linter/lints/hash_and_equals.html
+class Cat {
+  final String name;
+  Cat(this.name);
+  
+  @override 
+  //We are changing the function of the == operator function
+  bool operator == (covariant Cat other)  => other.name == name;
+  
+  @override
+  //We override the hascode
+  int get hashCode => name.hashCode;
+  
+}
+
+void test() {
+  final cat1 = Cat('Foo');
+  final cat2 = Cat('Foo');
+  
+  if (cat1 == cat2) {
+    print('They are equal');
+  } else {
+    print('They are not equal');
+  }
+}
+
+void main() {
+  test();
+}
+*/
+//==========================================================================================
+//=====Advanced Dart concepts: Extentions, Futures, Streams, Async/Await, Generators and ===
+//==========================================Extentions======================================
+/*
+class Cat {
+  final String name;
+  Cat(this.name);
+}
+
+extension CatX on Cat {
+  void run() {
+    print('Cat $name is running');
+  }
+}
+
+class Person {
+  final String firstName;
+  final String lastName;
+  Person(this.firstName, this.lastName);
+}
+
+extension PersonX on Person {
+  String get fullName => '$firstName $lastName';
+}
+
+void test() {
+  final meow = Cat('Bakkies');
+  print(meow.name);
+  meow.run();
+  
+  final person = Person('Nols', 'Smit');
+  print(person.fullName);
+}
+
+void main() {
+  test();
+}
+*/
+//==============Futures: Data to be returned in the future, as its name suggets================
+/*
+//See: https://dart.dev/codelabs/async-await
+//See: https://api.flutter.dev/flutter/dart-async/Future/Future.delayed.html
+//See: https://alvinalexander.com/source-code/dart-future-duration-delay-example/
+//See: https://alvinalexander.com/dart/how-run-multiple-dart-futures-in-parallel/
+
+Future<int>? heavyCalcProcess(int a) {
+  //We are delaying the future's return value by 3 seconds
+  print('Param = $a');
+  Future.delayed(const Duration(seconds: 3), () {
+    print('Processing');
+    double result = (a * 2);
+    print('Result after 3 seconds = $result');
+    return result;
+  });
+}
+
+//Async is a dart keyword that marks a function as asynchronousmeaning the function can execute
+//  commands that do not return immediately
+void test() async {
+  final result = await heavyCalcProcess(10);
+    print('Result = $result');
+}
+
+void main() {
+  test();
+}
+*/
+//==============================================================================================
+/* 
+Future<void> fetchUserOrder() {
+  // Imagine that this function is fetching user info from another service or database.
+  return Future.delayed(const Duration(seconds: 5), () => print('Large Latte 5 seconds later'));
+}
+
+void main() {
+  fetchUserOrder();
+  print('Fetching user order...');
+}
+*/
+//========================Streams: An asynchronous "pipe" of data==============================
+/*
+ //See: https://dart.dev/tutorials/language/streams
+ //See: https://api.flutter.dev/flutter/dart-async/Stream/Stream.periodic.html
+ 
+ Stream<String> getName() {
+   return Stream.periodic(const Duration(seconds: 1), (int value) {
+     return 'Foo';
+   });
+ }
+
+void test() async {
+  await for (final value in getName()) {
+    print(value);
+  }
+  print('Stream finished working');
+}
+
+void main() {
+  test();
+}
+*/
+//=============================Generators======================================================
+/*
+// A list of things that get calculated on the go
+//See: https://medium.flutterdevs.com/dart-generators-callable-class-in-flutter-e4b0b47bd1cf
+//See: https://www.geeksforgeeks.org/generators-in-dart/#:~:text=Asynchronous%20Generator%20in%20Dart,notification%20that%20something%20has%20failed.
+Iterable<int> getOneTwoThree() sync* {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+void test() {
+  // print(getOneTwoThree());
+  for (final value in getOneTwoThree()) {
+    print(value);
+    if (value == 2) {
+      break;
+    }
+  }
+}
+
+void main() {
+  test();
+}
+*/
+//===============================Generics ====================================================
+/*
+//See:  https://dart.academy/generics-in-dart-and-flutter/
+class Pair<A, B, C> {
+  final A value1;
+  final B value2;
+  final C value3;
+  
+  Pair(this.value1, this.value2, this.value3);
+}
+
+void test() {
+  final person = Pair('Nols', 'Smit', 70);
+
+  print(person.value1 + ' ' + person.value2 + ' ' + person.value3.toString());
+}
+
+void main() {
+  test();
+}
+*/
+//==================================Dynamic List=============================================
+/*
+void main(){
+  
+  var myList = [123, true, 456.78, 'Hello'];
+  
+  print(myList.runtimeType);
+  print('$myList ${myList.runtimeType}');
+}
+*/
+//====================================Basic Dart============================================
+/*
+void main() {
+  for (int i=0; i < 10; i++) {
+    print('i = ${i + 1}');
+  }
+}
+*/
+//=======================Printing a string which may  be null===============================
+/*
+void main() {
+//  String? userName = 'nols';
+  String? userName;
+  userName = 'Nols';
+  print ('username is $userName');
+  userName = null;
+  if (userName != null) {
+    print ('username is $userName');
+  } else {
+    print ('userName is null');
+  }
+}
+*/
+//========= main function calling another function giving return values ==================
+/*
+num addNumbers(num num1, num num2) {
+//  print(num1 + num2);
+  return (num1 + num2);
+}
+
+void main () {
+  print('sum is: ${addNumbers(1,2.6).toString()}');
+  var firstResult = addNumbers(1,2.6);
+  print('sum is: $firstResult');
+
+}
+*/
+//=====================================Variables============================================
+/*
+class Person {
+  String name = 'Nols';
+  double age = 70;
+}
+
+void main() {
+  var p1 = Person();
+  var p2 = Person();
+  p2.name = 'Koos';
+  var name = p2.name;
+  var age  = p2.age;
+  print ('Name: $name, Age: $age');
+}
+*/
+//======================================================================================
+//==========================Classes with constructorts - The old way====================
+//======================================================================================
+/*
+class Person {
+  String? name;
+  int? age;
+  
+  Person(String inputName, int age) {
+    name = inputName;
+    this.age = age;
+  }
+}
+
+void main() {
+  var p1 = Person('Jan', 67);
+  print('Naam is ${p1.name} en ouderdom is ${p1.age}');
+}
+*/
+//==================================================================================
+//=======Classes with constructorts - The old way using named constructors =========
+//==================================================================================
+/*
+class Person {
+  String? name;
+  int? age;
+  
+  // Parameters between {} imply they are named and default value for age = 25
+  Person({String? inputName, int inputAge = 25}) {
+    name = inputName;
+    age = inputAge;
+  }
+}
+
+void main() {
+  var p1 = Person(inputAge: 67, inputName: 'Jan',);
+  print('Naam is ${p1.name} en ouderdom is ${p1.age}');
+  
+  var p2;
+  p2 = Person(inputName: 'Koos');
+  print('Naam is ${p2.name} en ouderdom is ${p2.age}');
+}
+*/
+//================================================================================
+//======Classes with constructorts - The new way using named constructors=========
+//================================================================================
+/*
+class Person {
+  String? name;
+  int? age;
+  
+  // Named parametersare {} 
+  Person({this.name, this.age}); 
+  // Use "required" to indicate a required parameter
+  //Person({this.name, required this.age}); 
+}
+
+void main() {
+  var p1 = Person(age: 67, name: 'Jan');
+  print('Naam is ${p1.name} en ouderdom is ${p1.age}');
+  
+  var p2 = Person(name: 'Koos');
+  print('Naam is ${p2.name} en ouderdom is ${p2.age}');
+}
+*/
+//====================================================================================
+//=========== Multiple constructors and named arguments ==============================
+//====================================================================================
+/*
+class Person {
+  String name;
+  int? age;
+  String _gender = 'M';
+
+  void sayHello() {
+    print('Hello there! ');
+  }
+
+  Person({this.name = ' ', this.age = 30}); 
+      // Named params are between {} 
+
+  Person.veryOld(this.name) {
+    age = 60;
+  }
+}
+
+void main() {
+  var p1 = Person(age: 60, name: 'Max');
+  var p2 = Person(name: 'Nols');
+  var p3 = Person.veryOld('Koos');
+  String geslag;
+
+  String? greet;
+
+  greet = 'Hello ';
+  p1.sayHello();
+  print('$greet ${p1.name} is ${p1.age}');
+  print('${p2.name} is ${p2.age}');
+  print('${p3.name} is ${p3.age}');
+  p1._gender = 'F';
+  geslag = p1._gender;
+  print('${p1.name} se geslag is $geslag');
+}
+*/
+//==========================================================================================
+//============================ Positional & Named Arguments ================================
+//==========================================================================================
+/*
+class Something {
+  final String name;
+  final double price;
+  final String? description;
+  
+  Something (this.name, {required this.price, this.description});
+}
+//name is a positional argument while price and description are named arguments
+
+void main() { 
+  var p1 = Something('This cow', price: 50, description: 'is a jersey cow');
+  print('${p1.name}, cost \$${p1.price} and ${p1.description}');
+}
+*/
+//======================================================================================
+//===========================================Lists======================================
+//======================================================================================
+/*
+
+void main() {
+  var questions = [
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': 'Who\'s your favorite instructor?',
+      'answers': ['Max', 'Max', 'Max', 'Max'],
+    },
+  ];  
+  print(questions);
+  print(questions[1]);
+  print(questions[2]['questionText']);
+  print('----------------------');
+  print(questions[2]['questionText']);
+  print(questions[2]['answers']);
+}
+
+*/
+//===========================================================================================
+/*
+void main() {
+  final growableList =
+    List<int>.generate(3, (int index) {
+      index * index, growable: true);
+    }    
+  print(growableList); // [0, 1, 4]
+
+  final fixedLengthList =
+    List<int>.generate(5, (int index) => index * index, growable: false);
+  print(fixedLengthList); // [0, 1, 4]
+}
+*/
+//==========================================================================================
+/*
+import 'dart:math';
+
+class Point {
+  final num x;
+  final num y;
+  final num distanceFromOrigin;
+
+  // Old syntax
+  // Point(x, y) :
+  //   x = x,
+  //   y = y,
+  //   distanceFromOrigin = sqrt(pow(x, 2) + pow(y, 2));
+
+  // New syntax
+  Point(this.x, this.y) :
+    distanceFromOrigin = sqrt(pow(x, 2) + pow(y, 2));
+}
+
+void main() {
+ var distance;
+  
+
+  print (Point(3,5).distanceFromOrigin);
+}
+*/
+//============================================================================================

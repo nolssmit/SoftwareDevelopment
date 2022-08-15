@@ -1,0 +1,23 @@
+#fastapi
+#uvicorn
+#aiofiles
+#python-multipart
+
+## This is now available on PyPI.org, so we'll be using that one going forward.
+#fastapi-chameleon
+
+#starlette
+#-----------------------------------------------------------------------------------
+fastapi==0.63.0
+uvicorn==0.13.3
+aiofiles
+python-multipart
+
+# This is now available on PyPI.org, so we'll be using that one going forward.
+fastapi-chameleon
+
+starlette==0.13.6
+SQLAlchemy==1.3.22
+progressbar2
+python-dateutil
+passlib

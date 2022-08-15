@@ -1,0 +1,378 @@
+[2021-12-17 12:41:03 +0000] [664] [INFO] Starting gunicorn 20.0.4
+[2021-12-17 12:41:03 +0000] [664] [INFO] Listening at: http://0.0.0.0:8000 (664)
+[2021-12-17 12:41:03 +0000] [664] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2021-12-17 12:41:03 +0000] [782] [INFO] Booting worker with pid: 782
+[2021-12-17 12:41:03 +0000] [783] [INFO] Booting worker with pid: 783
+[2021-12-17 12:41:03 +0000] [784] [INFO] Booting worker with pid: 784
+[2021-12-17 12:42:01 +0000] [782] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2339, in _wrap_pool_connect
+    return fn()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 493, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 127, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  the database system is starting up
+FATAL:  the database system is starting up
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/uvicorn/workers.py", line 61, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+    return self.load_wsgiapp()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/nols/fastapi/caddy2_web_server/main.py", line 44, in <module>
+    metadata.create_all(engine)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4546, in create_all
+    bind._run_visitor(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2097, in _run_visitor
+    with self._optional_conn_ctx_manager(connection) as conn:
+  File "/usr/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2089, in _optional_conn_ctx_manager
+    with self._contextual_connect() as conn:
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2305, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2342, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2339, in _wrap_pool_connect
+    return fn()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 493, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 127, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  the database system is starting up
+FATAL:  the database system is starting up
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+[2021-12-17 12:42:04 +0000] [782] [INFO] Worker exiting (pid: 782)
+[2021-12-17 12:42:01 +0000] [783] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2339, in _wrap_pool_connect
+    return fn()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 493, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 127, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  the database system is starting up
+FATAL:  the database system is starting up
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/uvicorn/workers.py", line 61, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+    return self.load_wsgiapp()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/nols/fastapi/caddy2_web_server/main.py", line 44, in <module>
+    metadata.create_all(engine)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4546, in create_all
+    bind._run_visitor(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2097, in _run_visitor
+    with self._optional_conn_ctx_manager(connection) as conn:
+  File "/usr/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2089, in _optional_conn_ctx_manager
+    with self._contextual_connect() as conn:
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2305, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2342, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2339, in _wrap_pool_connect
+    return fn()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 493, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 127, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  the database system is starting up
+FATAL:  the database system is starting up
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+[2021-12-17 12:42:04 +0000] [783] [INFO] Worker exiting (pid: 783)
+[2021-12-17 12:42:01 +0000] [784] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2339, in _wrap_pool_connect
+    return fn()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 493, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 127, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  the database system is starting up
+FATAL:  the database system is starting up
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/uvicorn/workers.py", line 61, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+    return self.load_wsgiapp()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/nols/fastapi/caddy2_web_server/main.py", line 44, in <module>
+    metadata.create_all(engine)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 4546, in create_all
+    bind._run_visitor(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2097, in _run_visitor
+    with self._optional_conn_ctx_manager(connection) as conn:
+  File "/usr/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2089, in _optional_conn_ctx_manager
+    with self._contextual_connect() as conn:
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2305, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2342, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2339, in _wrap_pool_connect
+    return fn()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 493, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/nols/fastapi/caddy2_web_server/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 127, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  the database system is starting up
+FATAL:  the database system is starting up
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+[2021-12-17 12:42:04 +0000] [784] [INFO] Worker exiting (pid: 784)

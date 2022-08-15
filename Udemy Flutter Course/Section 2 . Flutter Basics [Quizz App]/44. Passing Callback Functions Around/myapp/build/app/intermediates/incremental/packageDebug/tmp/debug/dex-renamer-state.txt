@@ -1,0 +1,4 @@
+#Tue Aug 09 09:49:27 SAST 2022
+base.0=/home/nols/SoftwareDevelopment/Udemy_Flutter_Course/Section_2_Flutter_Basics/44. Passing Callback Functions Around/myapp/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
