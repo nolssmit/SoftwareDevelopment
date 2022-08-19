@@ -1,6 +1,8 @@
 // For the dummy data used, see:  https://jsonplaceholder.typicode.com/
 // About spinners, see: https://pub.dev/packages/flutter_spinkit
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:world_time/services/world_time.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
