@@ -26,17 +26,17 @@ class Home extends StatelessWidget {
       // body: Center(
       //   child: RaisedButton(
       //     onPressed: () {},
-      //     child: Text(
+      //     color: Color.fromARGB(255, 100, 175, 236),
+      //     child: const Text(
       //       'Click me!',
       //     ),
-      //     color: Color.fromARGB(255, 100, 175, 236),
       //   ),
       // ),
 
       // body: Center(
       //   child: RaisedButton.icon(
       //     onPressed: () {},
-      //     icon: Icon(
+      //     icon: const Icon(
       //       color: Colors.blue,
       //       Icons.mail,
       //     ),
@@ -47,19 +47,20 @@ class Home extends StatelessWidget {
 
       body: Center(
         child: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.alternate_email),
+          onPressed: () {
+            print('you clicked me!');
+          },
+          icon: const Icon(Icons.alternate_email),
           color: Colors.amber,
         ),
       ),
 
-
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
+        backgroundColor: Color.fromARGB(255, 248, 20, 4),
         child: Text(
           'click',
         ),
-        backgroundColor: Color.fromARGB(255, 248, 20, 4),
       ),
     );
   }

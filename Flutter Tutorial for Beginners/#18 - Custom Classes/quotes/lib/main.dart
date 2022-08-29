@@ -12,6 +12,7 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
+  // a List of Quote objects
   List<Quote> quotes = [
     Quote(
         author: 'Oscar Wilde',
@@ -27,7 +28,7 @@ class _QuoteListState extends State<QuoteList> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Awsome Quotes'),
+        title: const Text('Awsome Quotes'),
         centerTitle: true,
         backgroundColor: Colors.redAccent,
       ),

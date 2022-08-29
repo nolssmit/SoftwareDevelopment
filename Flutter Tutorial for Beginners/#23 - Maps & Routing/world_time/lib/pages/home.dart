@@ -14,10 +14,11 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             FlatButton.icon(
               onPressed: () {
+                // push another screen on top of this screen
                 Navigator.pushNamed(context, '/location');
               },
-              icon: Icon(Icons.edit_location),
-              label: Text('Edit Location'),
+              icon: const Icon(Icons.edit_location),
+              label: const Text('Edit Location'),
             )
           ],
         ),

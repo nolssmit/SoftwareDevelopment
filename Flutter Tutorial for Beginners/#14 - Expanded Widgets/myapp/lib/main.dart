@@ -26,35 +26,35 @@ class Home extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              padding: EdgeInsets.all(30),
+              padding: const EdgeInsets.all(30),
               color: Colors.cyan,
-              child: Text('1'),
+              child: const Text('1'),
             ),
           ),
           Expanded(
             flex: 1,
             child: Container(
-              padding: EdgeInsets.all(30),
+              padding: const EdgeInsets.all(30),
               color: Colors.pinkAccent,
-              child: Text('2'),
+              child: const Text('2'),
             ),
           ),
           Expanded(
             flex: 1,
             child: Container(
-              padding: EdgeInsets.all(30),
+              padding: const EdgeInsets.all(30),
               color: Colors.amber,
-              child: Text('3'),
+              child: const Text('3'),
             ),
           ),
         ],
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
+        backgroundColor: Color.fromARGB(255, 248, 20, 4),
         child: Text(
           'click',
         ),
-        backgroundColor: Color.fromARGB(255, 248, 20, 4),
       ),
     );
   }

@@ -17,23 +17,23 @@ class Home extends StatelessWidget {
       ),
       
       // body: Container(
-      //   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-      //   margin: EdgeInsets.all(30),
+      //   padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      //   margin: const EdgeInsets.all(30),
       //   color: Colors.grey[400],
-      //   child: Text('Hello'),
+      //   child: const Text('Hello'),
       // ),
 
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.all(90),
         child: Text('Hello'),
       ),
 
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
+        backgroundColor: Color.fromARGB(255, 248, 20, 4),
         child: Text(
           'click',
         ),
-        backgroundColor: Color.fromARGB(255, 248, 20, 4),
       ),
     );
   }

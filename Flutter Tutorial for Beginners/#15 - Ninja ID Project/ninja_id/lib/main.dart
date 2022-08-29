@@ -30,7 +30,7 @@ class NinjaCard extends StatelessWidget {
             ),
             Divider(
               color: Colors.grey[800],
-              height: 60.0,
+              height: 90.0,
             ),
             const Text(
               'NAME',
@@ -61,7 +61,9 @@ class NinjaCard extends StatelessWidget {
                 letterSpacing: 2.0,
               ),
             ),
-            const SizedBox(height: 10.0),
+            const SizedBox(
+              height: 10.0,
+            ),
             Text(
               'Beijing, China',
               style: TextStyle(

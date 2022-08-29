@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Loading extends StatefulWidget {
-  
   @override
   State<Loading> createState() => _LoadingState();
 }
@@ -9,8 +8,8 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Text('Loading screen'),
-    )
+    );
   }
 }

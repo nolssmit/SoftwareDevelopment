@@ -20,34 +20,34 @@ class Home extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget> [
           Row(
-            children: <Widget> [
+            children: const <Widget> [
               Text('Hello'),
               Text('world'),
             ],
           ),
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             color: Colors.cyan,
-            child: Text('One'),
+            child: const Text('One'),
           ),
                     Container(
-            padding: EdgeInsets.all(30),
+            padding: const EdgeInsets.all(30),
             color: Colors.pinkAccent,
-            child: Text('Two'),
+            child: const Text('Two'),
           ),
                     Container(
-            padding: EdgeInsets.all(40),
+            padding: const EdgeInsets.all(40),
             color: Colors.amber,
-            child: Text('Three'),
+            child: const Text('Three'),
           ),
         ],
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
+        backgroundColor: Color.fromARGB(255, 248, 20, 4),
         child: Text(
           'click',
         ),
-        backgroundColor: Color.fromARGB(255, 248, 20, 4),
       ),
     );
   }

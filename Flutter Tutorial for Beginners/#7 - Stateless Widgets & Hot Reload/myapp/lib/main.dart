@@ -29,10 +29,10 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
+        backgroundColor: Color.fromARGB(255, 248, 20, 4),
         child: Text(
           'click',
         ),
-        backgroundColor: Color.fromARGB(255, 248, 20, 4),
       ),
     );
   }

@@ -22,7 +22,7 @@ class _LoadingState extends State<Loading> {
 
     // get properties from data
     String datetime = data['datetime'];
-    print('datetime $datetime');
+    print('datetime: $datetime');
     print('utc_offset: ${data['utc_offset']}');
     String offset = data['utc_offset'].substring(1, 3);
     print('offset: $offset');
@@ -42,7 +42,7 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Text('Loading screen'),
     );
   }

@@ -19,25 +19,25 @@ class Home extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Hello world!'),
+          const Text('Hello world!'),
           FlatButton(
             onPressed: () {},
             color: Colors.amber,
-            child: Text('click me'),
+            child: const Text('click me'),
           ),
           Container(
             color: Colors.cyan,
-            padding: EdgeInsets.all(30),
-            child: Text('inside container'),
+            padding: const EdgeInsets.all(30),
+            child: const Text('inside container'),
           ),
         ],
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
+        backgroundColor: Color.fromARGB(255, 248, 20, 4),
         child: Text(
           'click',
         ),
-        backgroundColor: Color.fromARGB(255, 248, 20, 4),
       ),
     );
   }
