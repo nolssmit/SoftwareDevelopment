@@ -1,0 +1,3 @@
+See the following:
+https://www.youtube.com/watch?v=8qzip8tVmqU&t=533s
+https://github.com/tadaspetra/riverpod_examples/tree/master/riverpod_simplified
