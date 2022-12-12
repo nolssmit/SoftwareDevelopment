@@ -1,4 +1,4 @@
-Install git
+﻿Install git
 	$ sudo apt-get install git
 
 Check git version
@@ -10,7 +10,14 @@ Configure user and email
 	$ git config --global init.defaultBranch "master"
 
 Check your configurations
-	$ git config --global --list
+	$ git config --global –list
+
+
+Install git-sizer
+	See: https://installati.one/ubuntu/22.04/git-sizer/
+How to use git-sizer
+	See: https://blog.madkoo.net/2022/02/03/use-git-sizer/
+
 
 
 SSH Keys
