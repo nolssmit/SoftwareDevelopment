@@ -1,12 +1,10 @@
 package main
 
 import (
-	//	"bufio"
+//	"bufio"
 	"fmt"
-	"math/rand"
-	"time"
-	// "log"
-	// "os"
+//	"log"
+//	"os"
 )
 
 var pl = fmt.Println
@@ -78,16 +76,7 @@ var wordArr = [7] string {
 var randWord string
 var guessedLetters string
 var correctLetter []string
-var worongGuesses []string
-
-func getRandomWord() {
-	seedSecs := time.Now().Unix()
-	rand.Seed(seedSecs)
-	wordIndex := rand.Intn(7)
-	//pl("wordIndex :", wordIndex)
-	randWord = wordArr[wordIndex]
-	pl(randWord)
-}
+var wrongGuesses []string
 
 func main() {
  //reader := bufio.NewReader(os.Stdin)  //read from keyboard
@@ -96,14 +85,15 @@ func main() {
 
 	// Get a letter from the user
 	// Add to correctLetters
+
 	// A. If they guessed letter in word
-	//
+	// Add to correctLetter
 	// 1. Are there more letters to guess?
 	// 2. If no more letters to guess (YOU WIN)
+
 	// B. If they guessed letter not in word
-	// 1. Add new letter to guessedLetters,
-	// wrongGuesses
+	// 1. Add new letter to guessedLetters, wrongGuesses
 	// 2. Check if they died
 	
-	getRandomWord()
+
 }
