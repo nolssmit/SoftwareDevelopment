@@ -11,5 +11,6 @@ func main() {
 	intArr := []int{2,3,5,7,11}
 	strArr := stuff.IntArrToStrArr(intArr)
 	fmt.Println("String array :",strArr)
-	fmt.Println("Type of String Array :",reflect.TypeOf(strArr))
+	fmt.Println("Type of Array :",reflect.TypeOf(strArr))
 }
+// To run it in command line: go run main.go
